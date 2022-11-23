@@ -1,12 +1,14 @@
 <?php
 
-class Customer
+require_once "ICustomer.php";
+
+class Customer implements ICustomer
 {
-    private int $id;
-    private string $firstname;
-    private string $lastname;
-    private int $age;
-    private float $money;
+    protected int $id;
+    protected string $firstname;
+    protected string $lastname;
+    protected int $age;
+    protected float $money;
 
 
     public function __construct($id, $firstname, $lastname, $age, $money)
@@ -27,7 +29,7 @@ class Customer
             if ($p->reduceAmount($quantity))
                 $this->money -= $p->getPrice() * $quantity;
             else
-                echo "There is no more {$p->getProductName()}s";
+                echo "There are no more {$p->getProductName()}s";
         }
     }
 
@@ -39,5 +41,18 @@ class Customer
     public function __toString()
     {
         return "Customer with id: $this->id is called $this->firstname $this->lastname and is $this->age years old. He went to the shop with {$this->money}din. <br>";
+    }
+    /**
+     * @param Order $o
+     * @return mixed
+     */
+    public function buy(Order $o)
+    {
+        if ($this->money < $o->getTotalPrice())
+            echo "You don't have enough money!";
+        else {
+            $this->money -= $o->getTotalPrice();
+            echo "$this->firstname has bougth:<br> $o";
+        }
     }
 }

@@ -22,9 +22,19 @@ class Product
         return $this->price;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function getProductName()
     {
         return $this->productName;
+    }
+
+    public function getProductType()
+    {
+        return $this->productType;
     }
 
     public function getAmount()
@@ -32,7 +42,7 @@ class Product
         return $this->amount;
     }
 
-    public function reduceAmount($quantity)
+    public function reduceAmount($quantity = 1)
     {
         if ($this->amount >= $quantity) {
             $this->amount -= $quantity;
@@ -44,6 +54,11 @@ class Product
         //     return FALSE;
         // $this->amount--;
         // return TRUE;
+    }
+
+    public function addAmount($quantity)
+    {
+        //homework
     }
 
     public function __toString()
