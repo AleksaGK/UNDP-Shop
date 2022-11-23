@@ -1,5 +1,7 @@
 <?php
 
+namespace Customer;
+
 require_once "Product.php";
 
 

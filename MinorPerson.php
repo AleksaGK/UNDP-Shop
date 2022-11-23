@@ -1,5 +1,11 @@
 <?php
 
+namespace Customer;
+
+use ACustomer\Customer;
+
+require_once('AbstructCustomer.php');
+
 class MinorPerson extends Customer
 {
     public function buy(Order $o)

@@ -1,6 +1,10 @@
 <?php
 
-require_once "ICustomer.php";
+namespace Customer;
+
+use Customer\ICustomer;
+// require_once("product.php");
+require_once("ICustomer.php");
 
 class Customer implements ICustomer
 {

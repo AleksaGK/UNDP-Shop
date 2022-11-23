@@ -1,7 +1,14 @@
 <?php
 
+namespace Customer;
+
+use ACustomer\Customer;
+
+require_once('AbstructCustomer.php');
+require_once('traitCard.php');
 class Pensioner extends Customer
 {
+    use CreditCard;
     public static float $discount = 0.2;
 
     //T-property: static -> method: static

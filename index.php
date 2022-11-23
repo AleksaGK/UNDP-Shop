@@ -1,10 +1,15 @@
 <?php
 
+namespace Customer;
+
+
+
 require("Customer.php");
 require_once("Product.php");
 require "Order.php";
 require_once("MinorPerson.php");
 require_once("Pensioner.php");
+require_once('Adult.php');
 
 
 $c = new Customer(1, "Aleksa", "Miletic", 24, 10000);
@@ -62,3 +67,13 @@ echo $p->getMoney();
 // echo $o;
 
 echo $p;
+
+
+//third class
+$a = new Adult(3, "Mirko", 'Mirkovic', 35, 10000);
+echo "<br><br>";
+echo $a->buy($o);
+
+// $mp->payWithCard();
+$a->payWithCard();
+$p->payWithCard();
